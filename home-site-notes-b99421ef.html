@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 一个安静的起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f5f1;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #2f2e2b;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0 4rem;
+        }
+
+        /* 标题层级 —— 清晰但柔和 */
+        h1 {
+            font-weight: 400;
+            font-size: 2.2rem;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            color: #1f1e1b;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #6b6a66;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e1ddd6;
+            padding-bottom: 1.2rem;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 1.4rem;
+            margin-top: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2a2825;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #3c3a36;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            color: #3f3d39;
+        }
+
+        a {
+            color: #2f5e4c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #2f5e4c;
+        }
+
+        /* 故事开场 —— 短句 */
+        .opening {
+            font-size: 1.2rem;
+            background: #f0ede8;
+            padding: 1.6rem 2rem;
+            border-radius: 32px;
+            margin-bottom: 2.2rem;
+            line-height: 1.6;
+            color: #2e2b27;
+            border: 1px solid #e4dfd8;
+        }
+
+        .opening strong {
+            font-weight: 450;
+            color: #1f3f32;
+        }
+
+        /* 特点列表：极简卡片 */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        .feature-item {
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            border: 1px solid #ece8e1;
+            transition: box-shadow 0.25s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-item .label {
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            color: #7b7974;
+            margin-bottom: 0.1rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .feature-item .desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #35332f;
+        }
+
+        .feature-item .desc a {
+            font-weight: 400;
+            border-bottom: 1px dotted #b6b1a8;
+        }
+
+        .feature-item .desc a:hover {
+            border-bottom-color: #2f5e4c;
+        }
+
+        /* 温和结尾区域 */
+        .gentle-closing {
+            margin-top: 3.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e1ddd6;
+            font-size: 0.95rem;
+            color: #5b5852;
+        }
+
+        .gentle-closing p {
+            font-size: 0.95rem;
+            color: #5b5852;
+        }
+
+        .faq-bite {
+            background: #f0ece6;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 1.2rem;
+            border: 1px solid #e2ddd5;
+        }
+
+        .faq-bite p {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-bite .q {
+            font-weight: 450;
+            color: #2e2b27;
+        }
+
+        .faq-bite .a {
+            color: #4f4b44;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5e0d9;
+            margin: 2rem 0;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #8c8881;
+            margin-top: 2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .page-container {
+                padding: 0.5rem 0 3rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .opening {
+                padding: 1.2rem 1.4rem;
+                font-size: 1.05rem;
+            }
+
+            .feature-item {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .page-container {
+                max-width: 720px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- 开场短句 -->
+        <div class="opening">
+            <strong>一个不会消失的入口。</strong> 有些地方不需要华丽的前言，只需一个安稳的起点。
+        </div>
+
+        <h1>爱游戏</h1>
+        <div class="subhead">关于页面、门槛与日常</div>
+
+        <p>
+            如果你曾反复寻找一个干净、轻量的页面来安放对游戏内容的兴趣，那么这里是一个可以慢慢停留的角落。
+            <a href="https://home-site-aiyouxi.com.cn">爱游戏</a> 从第一天起就保持着简单的结构：没有弹窗，没有强制注册，甚至没有多余的跳转。它更像一块安静的告示板，把值得注意的信息整理好，然后等你什么时候有空，过来看两眼。
+        </p>
+
+        <p>
+            最初设计这个站点的想法来自一个很平凡的念头——很多游戏相关的介绍页要么太拥挤，要么藏得太深。能不能有一个页面，既不急着推销什么，又能真正帮人找到入口？于是就有了现在这个版本：一篇篇短文，或是一段段说明，节奏由你决定。
+        </p>
+
+        <!-- 特点列表 -->
+        <h2>几个一直没变的特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="label">01 叙述而非堆砌</div>
+                <div class="desc">
+                    每段文字都经过裁剪，不追求巨细无遗，只留下真正有用的说明。你在页面上读到的，几乎都是有人花时间组织过的内容。
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="label">02 稳定的结构</div>
+                <div class="desc">
+                    从首页到子页面，导航方式始终一致。如果你记不住具体路径，只要记得 <a href="https://home-site-aiyouxi.com.cn">爱游戏</a> 这个地址就足够了——它不会随意变动。
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="label">03 低门槛浏览</div>
+                <div class="desc">
+                    不需要登录、不需要关注社交媒体。所有内容直接呈现在页面上，你可以随时来，随时走，没有推送通知打扰。
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景短述 -->
+        <h2>适合什么时候打开它</h2>
+        <p>
+            下午休息的间隙，或者晚上安顿下来之后，想看看有没有什么新的游戏介绍或活动说明。又或者你只是需要一个不吵闹的页面来回忆某个老游戏的信息。<a href="https://home-site-aiyouxi.com.cn">爱游戏</a> 在这些场景里都还算称职：加载快，文字清晰，没有自动播放的视频。
+        </p>
+
+        <!-- 一个类 FAQ 的摘要段落，但不止一条 -->
+        <div class="faq-bite">
+            <p class="q">❓ 页面上的内容会频繁更新吗？</p>
+            <p class="a">更新节奏偏慢，但每次更新都会整理成一段完整的说明。与其说是新闻，不如说是定期笔记。</p>
+            <p class="q" style="margin-top: 0.6rem;">❓ 我需要注册才能看完整内容吗？</p>
+            <p class="a">不需要。所有可见的文字都是开放的，没有隐藏段落。</p>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="gentle-closing">
+            <p>
+                这个页面本身就是一个入口的入口。如果你觉得某个介绍有点意思，或者想再看看之前提过的某个功能，随时回来就好。
+            </p>
+            <p>
+                记住 <a href="https://home-site-aiyouxi.com.cn">爱游戏</a> 这个名字，它代表的就是一个简单、直接的站点。没有多余的承诺，只有经过整理的内容和一条安静的路。
+            </p>
+            <p class="small-note">
+                — 页面结构保持极简，没有收集任何个人信息。
+            </p>
+        </div>
+
+        <!-- 一个不起眼的种子标记，仅用于变化，并未显示在页面可见区，但这里以注释形式存在 -->
+        <!-- 创作种子: a147107cfa41f7db -->
+    </div>
+</body>
+</html>
