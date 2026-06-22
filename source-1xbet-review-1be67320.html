@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1xbet 知识查询与对照入口</title>
+    <style>
+        /* 重置与基础 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            background: #f4f5f7;
+            color: #1e2a3b;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 深色头图——目录式入口氛围 */
+        .hero {
+            width: 100%;
+            background: linear-gradient(145deg, #0d1b2a 0%, #1b2f44 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            color: #e6edf3;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.75rem;
+        }
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        /* 主内容容器——目录感卡片布局 */
+        .container {
+            max-width: 1140px;
+            width: 100%;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        /* 说明区：知识库角色 */
+        .description-block {
+            background: #ffffff;
+            padding: 2.2rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #2d6a8f;
+        }
+        .description-block h2 {
+            font-size: 1.7rem;
+            font-weight: 520;
+            color: #0f2b3b;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .description-block h2::before {
+            content: "📖";
+            font-size: 1.6rem;
+        }
+        .description-block p {
+            margin-bottom: 0.75rem;
+            color: #263b4a;
+        }
+        .description-block a {
+            color: #1d6b9e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #9bb7d1;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .description-block a:hover {
+            color: #0b3f5e;
+            border-bottom: 1px solid #0b3f5e;
+        }
+
+        /* 提示区——氛围感卡片 */
+        .tips-area {
+            background: #edf3fa;
+            border-radius: 18px;
+            padding: 2rem 2rem 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .tips-area .tip-item {
+            flex: 1 1 200px;
+            min-width: 160px;
+        }
+        .tips-area .tip-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1a3a4e;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #b2c9da;
+            padding-bottom: 0.2rem;
+            display: inline-block;
+        }
+        .tips-area .tip-item p {
+            font-size: 0.97rem;
+            color: #2c465a;
+        }
+
+        /* 相关信息区——目录卡片网格 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.6rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+        .info-card {
+            background: #ffffff;
+            padding: 1.8rem 1.4rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+            border: 1px solid #e6edf2;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .info-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .info-card .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+        .info-card h4 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            color: #1a2c3a;
+            margin-bottom: 0.5rem;
+        }
+        .info-card p {
+            font-size: 0.95rem;
+            color: #3b4f60;
+        }
+        .info-card a {
+            color: #19688f;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #9db9d0;
+        }
+        .info-card a:hover {
+            border-bottom: 1px solid #19688f;
+            color: #0b425e;
+        }
+
+        /* FAQ摘要——干净条目式 */
+        .faq-summary {
+            background: #ffffff;
+            padding: 2rem 2rem 1.8rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin: 1.8rem 0 2.2rem;
+        }
+        .faq-summary h3 {
+            font-size: 1.4rem;
+            font-weight: 510;
+            color: #112b39;
+            margin-bottom: 1.2rem;
+            padding-left: 0.2rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #e3eaf0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item strong {
+            color: #1a3d53;
+            font-weight: 550;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #2f4558;
+            margin: 0;
+        }
+
+        /* 强调链接——句子内自然嵌入 */
+        .inline-link {
+            color: #1a6a94;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6cfdf;
+        }
+        .inline-link:hover {
+            color: #0a3953;
+            border-bottom: 1px solid #0a3953;
+        }
+
+        /* 辅助分段与间距 */
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #6a7e8e;
+            margin-bottom: 0.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero { padding: 2.8rem 1rem 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 1.8rem 1rem 2.5rem; }
+            .description-block { padding: 1.6rem 1.2rem; }
+            .tips-area { padding: 1.6rem 1.2rem; flex-direction: column; gap: 1rem; }
+            .info-grid { grid-template-columns: 1fr; }
+            .faq-summary { padding: 1.4rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 · 目录式入口 -->
+<header class="hero">
+    <h1>📚 查询 · 对照 · 延伸</h1>
+    <p>围绕平台信息与常见疑问，梳理可参考的知识片段。日常查阅、对比与深入了解的轻量索引。</p>
+</header>
+
+<main class="container">
+
+    <!-- 说明区：知识库定位 -->
+    <section class="description-block">
+        <h2>说明</h2>
+        <p>此页面聚合了围绕 <a href="https://source-1xbet.com">1xbet</a> 的若干背景说明、功能要点及使用场景，旨在提供一份便于日常查阅和对照的参考。不构成操作指导或推荐，内容保持客观与描述性。</p>
+        <p>如果你希望直接查看平台界面与功能模块，可访问 <a href="https://source-1xbet.com" class="inline-link">1xbet</a> 进行了解。以下内容仅从常见查询角度整理，供你按需浏览。</p>
+    </section>
+
+    <!-- 提示区：三个自然提示块 -->
+    <section class="tips-area">
+        <div class="tip-item">
+            <h3>📌 版本对照</h3>
+            <p>不同地区或语言版本在界面文字、支付方式上可能存在差异，查阅时注意标识与区域设置。</p>
+        </div>
+        <div class="tip-item">
+            <h3>📌 信息核实</h3>
+            <p>功能状态、活动规则可能随时调整，建议以页面内实时显示为准，此处仅作概念梳理。</p>
+        </div>
+        <div class="tip-item">
+            <h3>📌 延伸阅读</h3>
+            <p>可配合帮助中心或常见问题板块进一步了解条款、限额与账户操作细节。</p>
+        </div>
+    </section>
+
+    <!-- 相关信息区：卡片目录风格 -->
+    <div class="section-label">— 相关信息 —</div>
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="card-icon">🖥️</div>
+            <h4>界面区域</h4>
+            <p>顶部导航、体育、真人、电竞、棋牌、游戏等主分类入口，以及个人中心与余额面板。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">⚙️</div>
+            <h4>账户与设置</h4>
+            <p>注册、登录、密码管理、多级验证、通知偏好及历史记录查询路径。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">💳</div>
+            <h4>支付方式</h4>
+            <p>支持的充值渠道与提现规则概览，包括电子钱包、银行转账及加密货币选项。</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">📋</div>
+            <h4>条款摘要</h4>
+            <p>常见规则如流水要求、红利有效期、单次限额等，详细以页面公示为准。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要：简洁条目式 -->
+    <section class="faq-summary">
+        <h3>❓ 常见查询摘要</h3>
+        <div class="faq-item">
+            <strong>如何快速找到当前活动？</strong>
+            <p>通常可在首页横幅或“促销”板块查看进行中的优惠，活动内容、参与条件及截止时间均有标注。</p>
+        </div>
+        <div class="faq-item">
+            <strong>账户验证需要哪些材料？</strong>
+            <p>一般要求身份证明、地址证明，部分情况需补充手持证件照。具体清单可在安全中心或客服页面找到。</p>
+        </div>
+        <div class="faq-item">
+            <strong>投注记录可以保留多久？</strong>
+            <p>默认保留一段时间，通常可查询近30天至90天历史，更早记录可通过存档或客服协助获取。</p>
+        </div>
+        <div class="faq-item">
+            <strong>关于 <a href="https://source-1xbet.com" class="inline-link">1xbet</a> 的官网语言切换</strong>
+            <p>页面底部或顶部通常提供语言选择器，支持数十种语言，切换后内容与帮助文档同步变更。</p>
+        </div>
+    </section>
+
+    <!-- 结尾：自然收束 -->
+    <p style="color: #556b7a; font-size: 0.95rem; border-top: 1px solid #dbe3ea; padding-top: 1.8rem; margin-top: 0.2rem; text-align: center;">
+        以上内容仅为信息梳理，具体操作与界面请以实际页面为准。如需直接访问，可前往 <a href="https://source-1xbet.com" class="inline-link">1xbet</a>。
+    </p>
+</main>
+
+</body>
+</html>
